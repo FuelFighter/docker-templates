@@ -37,5 +37,15 @@ RUN  apt-get update && \
   apt-get clean && rm -rf /var/lib/apt/lists/* && \
   rm -rf /opt/opencv*
 
+RUN $APT update && \
+  $APT install libsdl2-dev freeglut3-dev libglew-dev libeigen3-dev libsoil-dev
+
+RUN $APT update && \
+  $APT install gdb valgrind
+
+# For ouster lidar
+RUN $APT update && \
+  $APT install libvtk6-dev libeigen3-dev libeigen3-dev ros-kinetic-pcl-ros
+
 ADD config.sh /root/config.sh
 ENTRYPOINT /bin/bash -c '. /ros_entrypoint.sh && . /root/config.sh && cd $WORKDIR && /bin/bash'
