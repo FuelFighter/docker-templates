@@ -10,5 +10,6 @@ To run a template image, run the run_docker script (for instance [./docker-templ
 
 The run_docker script will mount the directory below the image template directory it is located in to the workdir specified in the [config file](docker-template/config.sh).
 This also serves as the entrypoint of the container.
+Using [the reodor run_docker file](reodor-environment/run_docker.sh) there is also support for using the native X server for GUI applications.
 
 Tests for the templates are located in [tests/](tests).
